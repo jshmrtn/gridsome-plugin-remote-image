@@ -44,7 +44,8 @@ module.exports = {
         'typeName' : 'Entry',
         'sourceField': 'remoteImages',
         'targetField': 'imagesDownloaded',
-        'targetPath': './src/assets/remoteImages'
+        'targetPath': './src/assets/remoteImages',
+        'mapUrl': (imageSource) => `http://${imageSource}`
       }
     }
   ]

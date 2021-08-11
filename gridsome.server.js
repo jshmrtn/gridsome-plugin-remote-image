@@ -151,7 +151,8 @@ class ImageDownloader {
             normalizeProtocol = true, 
             defaultProtocol = 'http:', 
             downloadFromLocalNetwork = false, 
-            targetPath = 'src/assets/remoteImages', 
+            targetPath = 'src/assets/remoteImages',
+            mapUrl = (imageSource) => imageSource,
             sourceField 
         } = options
 
@@ -159,6 +160,8 @@ class ImageDownloader {
 
         return Promise.all(
             imageSources.map( async imageSource => {
+
+                imageSource = mapUrl(imageSource)
 
                 try {
                 // Normalize URL, and extract the pathname, to be used for the original filename if required
